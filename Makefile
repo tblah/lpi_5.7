@@ -1,8 +1,8 @@
-COMPILE_OPTS= -g -Wall
+COMPILE_OPTS= -g -Wall -std=c99
 COMMON_HEADDERS=errExit.h bool.h
-READV_DEPS=$(COMMON_HEADDERS) readv.c iovec.h
+READV_DEPS=readv.c iovec.h
 WRITEV_DEPS=$(COMMON_HEADDERS) writev.c iovec.h
-TESTER_DEPS=readv.h writev.h readv.o writev.o errExit.o $(COMMON_HEADDERS) test.c 
+TESTER_DEPS=readv.h writev.h iovec.h readv.o writev.o errExit.o $(COMMON_HEADDERS) test.c 
 
 all: tester
 
@@ -22,4 +22,4 @@ errExit.o: errExit.c errExit.h
 	cc $(COMPILE_OPTS) -c -o errExit.o errExit.c
 
 clean:
-	rm tester *.o
+	rm tester *.o 
